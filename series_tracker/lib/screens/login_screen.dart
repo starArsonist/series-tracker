@@ -20,7 +20,7 @@ class _LoginScreenState extends State<LoginScreen> {
         const SnackBar(content: Text('Успешный вход')),
       );
 
-      // Navigator.pushReplacementNamed(context, '/home');
+      Navigator.pushReplacementNamed(context, '/home');
     } else {
       ScaffoldMessenger.of(context).showSnackBar(
         const SnackBar(content: Text('Введите email и пароль')),

@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'screens/login_screen.dart';
 import 'screens/register_screen.dart';
+import 'screens/home_screen.dart';
 
 void main() {
   runApp(const SeriesTrackerApp());
@@ -21,6 +22,7 @@ class SeriesTrackerApp extends StatelessWidget {
       routes: {
         '/login': (context) => const LoginScreen(),
         '/register': (context) => const RegisterScreen(),
+        '/home': (context) => const HomeScreen(),
       },
     );
   }
