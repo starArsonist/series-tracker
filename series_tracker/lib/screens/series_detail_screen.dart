@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
 import '../models/series.dart';
+import 'edit_series_screen.dart';
+
 
 class SeriesDetailScreen extends StatefulWidget {
   final Series series;
@@ -42,6 +44,20 @@ class _SeriesDetailScreenState extends State<SeriesDetailScreen> {
     return Scaffold(
       appBar: AppBar(
         title: Text(series.title),
+        actions: [
+          IconButton(
+            icon: const Icon(Icons.edit),
+            onPressed: () async {
+              await Navigator.push(
+                context,
+                MaterialPageRoute(
+                  builder: (context) => EditSeriesScreen(series: series),
+                ),
+              );
+              setState(() {}); // обновление
+            },
+          ),
+        ],
       ),
       body: Padding(
         padding: const EdgeInsets.all(16),
