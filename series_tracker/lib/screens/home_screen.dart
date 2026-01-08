@@ -2,8 +2,6 @@ import 'package:flutter/material.dart';
 import '../models/series.dart';
 import 'add_series_screen.dart';
 import 'series_detail_screen.dart';
-import 'profile_screen.dart';
-
 
 class HomeScreen extends StatefulWidget {
   const HomeScreen({super.key});
@@ -62,22 +60,16 @@ class _HomeScreenState extends State<HomeScreen> {
         title: const Text('Мои сериалы'),
         actions: [
           IconButton(
-            icon: const Icon(Icons.person),
-            onPressed: () {
-              Navigator.push(
-                context,
-                MaterialPageRoute(
-                  builder: (context) =>
-                      ProfileScreen(
-                        username: 'Student',
-                        seriesList: _seriesList,
-                      ),
-                ),
-              );
-            },
+            icon: const Icon(Icons.settings),
+            onPressed: () => Navigator.pushNamed(context, '/settings'),
+          ),
+          IconButton(
+            icon: const Icon(Icons.info),
+            onPressed: () => Navigator.pushNamed(context, '/about'),
           ),
         ],
       ),
+
       body: ListView.builder(
         itemCount: _seriesList.length,
         itemBuilder: (context, index) {
