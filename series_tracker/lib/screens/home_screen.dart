@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
 import '../models/series.dart';
+import 'add_series_screen.dart';
+import 'series_detail_screen.dart';
 
 class HomeScreen extends StatefulWidget {
   const HomeScreen({super.key});
@@ -86,17 +88,31 @@ class _HomeScreenState extends State<HomeScreen> {
                 ],
               ),
               onTap: () {
-                // todo: переход к сериалу
+                Navigator.push(
+                  context,
+                  MaterialPageRoute(
+                    builder: (context) => SeriesDetailScreen(series: series),
+                  ),
+                );
               },
             ),
           );
         },
       ),
       floatingActionButton: FloatingActionButton(
-        onPressed: () {
-          ScaffoldMessenger.of(context).showSnackBar(
-            const SnackBar(content: Text('Экран добавления сериала')),
+        onPressed: () async {
+          final newSeries = await Navigator.push(
+            context,
+            MaterialPageRoute(
+              builder: (context) => const AddSeriesScreen(),
+            ),
           );
+
+          if (newSeries != null) {
+            setState(() {
+              _seriesList.add(newSeries);
+            });
+          }
         },
         child: const Icon(Icons.add),
       ),
