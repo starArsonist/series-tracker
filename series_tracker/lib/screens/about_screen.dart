@@ -35,7 +35,7 @@ class AboutScreen extends StatelessWidget {
             ),
             const SizedBox(height: 24),
             const Text(
-              'Разработано:\nВаша группа\nОмский Государственный Технический Университет',
+              'Разработано:\nИСТ-231:\nИльичёв Андрей\nБаканова Анастасия\nПрокофьев Максим\nГардер Александр\nОмский Государственный Технический Университет',
               style: TextStyle(fontSize: 16),
             ),
             const SizedBox(height: 24),
